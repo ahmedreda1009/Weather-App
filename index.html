@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="icon" type="image/png" href="./imgs/weather2.png" sizes="16x16">
+    <link rel="stylesheet" href="./scss/all.min.css">
+    <link rel="stylesheet" href="./scss/normalize.css">
+    <link rel="stylesheet" href="./scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="loading">
+        <div class="loading-child">
+            <div class="loading-container">
+                <div class="static"></div>
+                <div class="dynamic"></div>
+                <div class="dynamic"></div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="loading-ellipsis">
+        <div class="loading-wrapper">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div> -->
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="search-main">
+                <div class="get-location">
+                    <div class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="Another Location ...">
+                    </div>
+                    <div class="current-location">
+                        <i class="fa-solid fa-location-arrow"></i>
+                        <p>Current&nbsp;Location</p>
+                    </div>
+                </div>
+
+                <main class="main">
+                    <div class="city">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span class="city">City,</span>&nbsp;
+                        <span class="country">Country</span>
+                    </div>
+                    <div class="icon">
+                        <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="">
+                    </div>
+                    <div class="discription">Cloudy</div>
+                    <div class="temperature">
+                        <span class="num">00</span>
+                        <sup class="deg">°</sup>
+                        <span class="temp-unit">C</span>
+                    </div>
+                    <div class="switch-units">
+                        <div class="bg"></div>
+                        <div class="celsius">°C</div>
+                        <div class="fahrenheit">°F</div>
+                    </div>
+                </main>
+            </div>
+
+            <div class="daily-hourly">
+                <div class="buttons">
+                    <div class="bg"></div>
+                    <div class="daily-btn">Daily</div>
+                    <div class="hourly-btn">Hourly</div>
+                </div>
+                <div class="daily active">
+                    <div class="day">
+                        <div class="day-name">Saturday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Sunday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Monday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Tuesday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Wednesday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Thursday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Friday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Saturday</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/13d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="min">00</span> -
+                            <span class="max">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hourly">
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="hour">
+                        <div class="hour-number">00</div>
+                        <div class="image">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                        </div>
+                        <div class="temp">
+                            <span class="temp">00</span>
+                            <sup class="deg">°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="conditions">
+                <div class="feels-like">
+                    <div class="content">
+                        <h4>feels like</h4>
+                        <div class="value">
+                            <span class="num">0</span>
+                            <sup>°</sup>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./imgs/feelslike.png" alt="">
+                    </div>
+                </div>
+
+                <div class="humidity">
+                    <div class="content">
+                        <h4>humidity</h4>
+                        <div class="value">
+                            <span class="num">0</span>
+                            <span class="unit">%</span>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./imgs/humidity5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="chance-of-rain">
+                    <div class="content">
+                        <h4>chance of rain</h4>
+                        <div class="value">
+                            <span class="num">0</span>
+                            <span class="unit">%</span>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./imgs/rain3.png" alt="">
+                    </div>
+                </div>
+
+                <div class="wind-speed">
+                    <div class="content">
+                        <h4>wind speed</h4>
+                        <div class="value">
+                            <span class="num">0</span>
+                            <span class="unit">Km/h</span>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./imgs/wind3.png" alt="">
+                    </div>
+                </div>
+
+                <div class="pressure">
+                    <div class="content">
+                        <h4>pressure</h4>
+                        <div class="value">
+                            <span class="num">0</span>
+                            <span class="unit">Kpa</span>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./imgs/pressure4.png" alt="">
+                    </div>
+                </div>
+
+                <div class="clouds">
+                    <div class="content">
+                        <h4>clouds</h4>
+                        <div class="value">
+                            <span class="num"></span>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./imgs/clouds3.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="additional">
+                <div class="date-time">
+                    <div class="day-name">Sunday,</div>
+                    <div class="date">
+                        <span class="day-num">22</span>
+                        <span class="month">October</span>
+                        <span class="year">2022</span>
+                    </div>
+                    <div class="time">
+                        <span class="hour">02 : 09</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="sunrise">
+                        <div class="image">
+                            <img src="./imgs/sunrise.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h4>Sunrise</h4>
+                            <time>00 : 00 Am</time>
+                        </div>
+                    </div>
+
+                    <div class="sunset">
+                        <div class="image">
+                            <img src="./imgs/sunset.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h4>Sunset</h4>
+                            <time>00 : 00 Pm</time>
+                        </div>
+                    </div>
+                    <div class="moonrise">
+                        <div class="image">
+                            <img src="./imgs/moonrise2.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h4>Moonrise</h4>
+                            <time>00 : 00 Pm</time>
+                        </div>
+                    </div>
+
+                    <div class="moonset">
+                        <div class="image">
+                            <img src="./imgs/moonset2.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h4>Moonset</h4>
+                            <time>00 : 00 Pm</time>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/callDomElements.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>

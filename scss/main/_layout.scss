@@ -1,0 +1,103 @@
+.wrapper {
+	width: 100%;
+	max-width: 1400px;
+
+	@media (min-width: 1000px) {
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		width: 100%;
+	}
+}
+
+.container {
+	padding: 0px;
+	display: grid;
+	gap: 30px;
+	padding: 30px;
+	transition: width 0.3s ease-in-out;
+	box-shadow: rgb(0 0 0 / 25%) 0px 0px 4px 1px,
+		rgb(0 0 0 / 22%) 0px 0px 20px 9px;
+	background-color: rgb(204, 204, 204);
+
+	grid-template-areas:
+		"search-main"
+		"daily"
+		"additional"
+		"conditions";
+	@media (max-width: 799px) {
+		padding: 10px;
+	}
+
+	@media (min-width: 800px) {
+		grid-template-areas:
+			"search-main search-main"
+			"daily additional"
+			"conditions conditions";
+	}
+
+	@media (min-width: 1000px) {
+		margin: 30px;
+		grid-template-areas:
+			"search-main daily"
+			"additional additional"
+			"conditions conditions";
+		border-radius: 20px;
+		min-width: 980px;
+		padding: 50px;
+	}
+
+	@media (min-width: 1250px) {
+		min-width: 1200px;
+		grid-template-areas:
+			"search-main additional daily"
+			"conditions conditions conditions";
+	}
+
+	@media (max-height: 700px) and (min-width: 1250px) {
+		margin: 0px;
+		padding: 30px;
+	}
+
+	> *:not(.search-main) {
+		padding: 20px;
+		background-color: #0047ab;
+		border: 1px solid rgba(255, 255, 255, 0.09);
+		border-radius: 16px;
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+		box-shadow: rgb(0 0 0 / 25%) 0px 0px 2px,
+			rgb(0 0 0 / 22%) 0px 0px 12px 1px;
+
+		&::before {
+			content: "";
+			width: calc(100% + 20px);
+			height: calc(100% + 20px);
+			position: absolute;
+			left: -10px;
+			top: -10px;
+			z-index: -1;
+			border-radius: 16px;
+			background-color: hsla(0, 0%, 0%, 0.05);
+		}
+	}
+
+	.search-main {
+		grid-area: search-main;
+	}
+
+	.daily-hourly {
+		grid-area: daily;
+		min-width: 360px;
+	}
+
+	.conditions {
+		grid-area: conditions;
+	}
+
+	.additional {
+		grid-area: additional;
+	}
+}
