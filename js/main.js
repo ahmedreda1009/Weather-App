@@ -37,6 +37,7 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
         document.querySelector('.loading').style.opacity = '1';
         let response = await fetch(api);
         let data = await response.json();
+        // console.log(data);
 
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -157,15 +158,17 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
 
 // get coordinates from city name and pass it to the (getApiFromCoords) function.
 async function getCityCoordiates(cityName) {
-    let apiKey = '3fbfcddb23c2f046fd82f7361c6bafdc';
-    let api = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}&units=${units}`;
+    // let apiKey = '3fbfcddb23c2f046fd82f7361c6bafdc';
+    // let api = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}&units=${units}`;
+    let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=20f7632ffc2c022654e4093c6947b4f4`;
 
 
     try {
         let cityResponse = await fetch(api);
         let cityData = await cityResponse.json();
+        // console.log(cityData);
 
-        getApiFromCoords(cityData[0].lat, cityData[0].lon, cityData[0].name, cityData[0].country, units);
+        getApiFromCoords(cityData.coord.lat, cityData.coord.lon, cityData.name, cityData.sys.country, units);
 
     } catch (error) {
         console.error('Error when fetching data:', error);
@@ -236,12 +239,14 @@ let currentBtn = document.querySelector('.search-main .current-location');
 currentBtn.addEventListener('click', () => {
     async function successCallback(position) {
         // console.log(position);
-        let apiLink = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=bqaNydUISBCGNIDR1eOCjNzSV3QxVKIC&q=${position.coords.latitude},${position.coords.longitude}`;
+        // let apiLink = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=bqaNydUISBCGNIDR1eOCjNzSV3QxVKIC&q=${position.coords.latitude},${position.coords.longitude}`;
+        // let apiLink = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&${position.coords.longitude}&appid=3fbfcddb23c2f046fd82f7361c6bafdc`;
+        let apiLink = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
         let response = await fetch(apiLink);
         let data = await response.json();
         // console.log(data);
-        getApiFromCoords(data.GeoPosition.Latitude, data.GeoPosition.Longitude, data.AdministrativeArea.EnglishName, data.AdministrativeArea.CountryID, units);
-        lastCity = data.AdministrativeArea.EnglishName;
+        getApiFromCoords(data.latitude, data.longitude, data.city, data.countryCode, units);
+        lastCity = data.city;
     };
     navigator.geolocation.getCurrentPosition(successCallback);
 });
