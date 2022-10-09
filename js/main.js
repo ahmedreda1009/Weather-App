@@ -71,7 +71,7 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
         mainDescription.textContent = data.current.weather[0].description;
         // set the main image
         // mainImage.src = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
-        mainImage.src = `/imgs/${data.current.weather[0].icon}.png`;
+        mainImage.src = `./imgs/${data.current.weather[0].icon}.png`;
         // set the condition feels like
         feelsLike.textContent = Math.round(data.current.feels_like);
         // set the condition humidity
@@ -131,7 +131,7 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
 
             dayName.textContent = days[new Date(data.daily[index].dt * 1000).getDay()];
             // dayImg.src = `http://openweathermap.org/img/wn/${data.daily[index].weather[0].icon}@2x.png`;
-            dayImg.src = `/imgs/${data.daily[index].weather[0].icon}.png`;
+            dayImg.src = `./imgs/${data.daily[index].weather[0].icon}.png`;
             minTemp.textContent = Math.round(data.daily[index].temp.min);
             maxTemp.textContent = Math.round(data.daily[index].temp.max);
         });
@@ -144,7 +144,7 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
 
             hourNumber.textContent = setTime(new Date(data.hourly[index].dt * 1000));
             // img.src = `http://openweathermap.org/img/wn/${data.hourly[index].weather[0].icon}@2x.png`
-            img.src = `/imgs/${data.hourly[index].weather[0].icon}.png`;
+            img.src = `./imgs/${data.hourly[index].weather[0].icon}.png`;
             temp.textContent = Math.round(data.hourly[index].temp);
         });
         setTimeout(() => {

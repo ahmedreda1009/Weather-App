@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background: #222;
-  background-image: url(../../imgs/sunrise-and-sunset3.jpg);
+  background-image: url(/imgs/sunrise-and-sunset3.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
