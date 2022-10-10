@@ -29,12 +29,21 @@ let lastCity = 'new york';
 let currentCity = 'new york';
 let units = 'metric';
 
+let loading = document.querySelector('.loading');
+window.addEventListener('load', () => {
+    loading.classList.add('hidden');
+});
+
+
 // get api data from coordinates and display the data
 async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
     let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=${units}&appid=20f7632ffc2c022654e4093c6947b4f4`;
 
     try {
-        document.querySelector('.loading').style.opacity = '1';
+        // document.querySelector('.loading').style.opacity = '1';
+        loading.classList.remove('hidden');
+        loading.style.opacity = '1';
+        loading.style.visibility = 'visible';
         let response = await fetch(api);
         let data = await response.json();
         // console.log(data);
@@ -147,9 +156,11 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
             img.src = `./imgs/${data.hourly[index].weather[0].icon}.png`;
             temp.textContent = Math.round(data.hourly[index].temp);
         });
-        setTimeout(() => {
-            document.querySelector('.loading').style.opacity = '0';
-        }, 300);
+
+        loading.classList.add('hidden');
+        // setTimeout(() => {
+        //     // document.querySelector('.loading').style.opacity = '0';
+        // }, 300);
 
     } catch (error) {
         console.log('Error when fetching data:', error);
