@@ -138,7 +138,13 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
             let minTemp = day.querySelector('.temp .min');
             let maxTemp = day.querySelector('.temp .max');
 
-            dayName.textContent = days[new Date(data.daily[index].dt * 1000).getDay()];
+            if (index === 0) {
+                dayName.textContent = 'Today';
+            } else if (index === 1) {
+                dayName.textContent = 'Tomorrow';
+            } else {
+                dayName.textContent = days[new Date(data.daily[index].dt * 1000).getDay()];
+            }
             // dayImg.src = `http://openweathermap.org/img/wn/${data.daily[index].weather[0].icon}@2x.png`;
             dayImg.src = `./imgs/${data.daily[index].weather[0].icon}.png`;
             minTemp.textContent = Math.round(data.daily[index].temp.min);
@@ -151,7 +157,11 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
             let img = hour.querySelector('.image img');
             let temp = hour.querySelector('.temp > .temp');
 
-            hourNumber.textContent = setTime(new Date(data.hourly[index].dt * 1000));
+            if (index === 0) {
+                hourNumber.textContent = 'Now';
+            } else {
+                hourNumber.textContent = setTime(new Date(data.hourly[index].dt * 1000));
+            }
             // img.src = `http://openweathermap.org/img/wn/${data.hourly[index].weather[0].icon}@2x.png`
             img.src = `./imgs/${data.hourly[index].weather[0].icon}.png`;
             temp.textContent = Math.round(data.hourly[index].temp);
