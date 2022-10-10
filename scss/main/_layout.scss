@@ -28,7 +28,7 @@
 		"additional"
 		"conditions";
 	@media (max-width: 799px) {
-		padding: 10px;
+		padding: 5px;
 	}
 
 	@media (min-width: 800px) {
@@ -71,16 +71,18 @@
 		box-shadow: rgb(0 0 0 / 25%) 0px 0px 2px,
 			rgb(0 0 0 / 22%) 0px 0px 12px 1px;
 
-		&::before {
-			content: "";
-			width: calc(100% + 20px);
-			height: calc(100% + 20px);
-			position: absolute;
-			left: -10px;
-			top: -10px;
-			z-index: -1;
-			border-radius: 16px;
-			background-color: hsla(0, 0%, 0%, 0.05);
+		@media (min-width: 800px) {
+			&::before {
+				content: "";
+				width: calc(100% + 20px);
+				height: calc(100% + 20px);
+				position: absolute;
+				left: -10px;
+				top: -10px;
+				z-index: -1;
+				border-radius: 16px;
+				background-color: hsla(0, 0%, 0%, 0.05);
+			}
 		}
 	}
 
@@ -91,6 +93,10 @@
 	.daily-hourly {
 		grid-area: daily;
 		min-width: 360px;
+
+		@media (max-width: 350px) {
+			min-width: 310px;
+		}
 	}
 
 	.conditions {
