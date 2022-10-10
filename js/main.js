@@ -30,9 +30,9 @@ let currentCity = 'new york';
 let units = 'metric';
 
 let loading = document.querySelector('.loading');
-window.addEventListener('load', () => {
-    loading.classList.add('hidden');
-});
+// window.addEventListener('load', () => {
+//     loading.classList.add('hidden');
+// });
 
 
 // get api data from coordinates and display the data
@@ -140,8 +140,6 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
 
             if (index === 0) {
                 dayName.textContent = 'Today';
-            } else if (index === 1) {
-                dayName.textContent = 'Tomorrow';
             } else {
                 dayName.textContent = days[new Date(data.daily[index].dt * 1000).getDay()];
             }
