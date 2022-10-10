@@ -41,9 +41,11 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
 
     try {
         // document.querySelector('.loading').style.opacity = '1';
-        loading.classList.remove('hidden');
-        loading.style.opacity = '1';
-        loading.style.visibility = 'visible';
+        if (loading.style.opacity !== '0') {
+            loading.classList.remove('hidden');
+            loading.style.opacity = '1';
+            loading.style.visibility = 'visible';
+        }
         let response = await fetch(api);
         let data = await response.json();
         // console.log(data);
