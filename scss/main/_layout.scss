@@ -1,6 +1,7 @@
 .wrapper {
 	width: 100%;
 	max-width: 1400px;
+	transition: width 0.5s ease, max-width 0.5s ease;
 
 	@media (min-width: 1000px) {
 		margin: auto;
@@ -9,6 +10,7 @@
 		justify-content: center;
 		min-height: 100vh;
 		width: 100%;
+		transition: width 0.5s ease, min-height 0.5s ease, margin 0.5s ease;
 	}
 }
 
@@ -17,10 +19,12 @@
 	display: grid;
 	gap: 30px;
 	padding: 30px;
-	transition: width 0.3s ease-in-out;
+	// transition: width 0.3s ease-in-out;
 	box-shadow: rgb(0 0 0 / 25%) 0px 0px 4px 1px,
 		rgb(0 0 0 / 22%) 0px 0px 20px 9px;
 	background-color: rgb(204, 204, 204);
+	transition: padding 0.5s ease, margin 0.5s ease, gap 0.5s ease,
+		width 0.5s ease;
 
 	grid-template-areas:
 		"search-main"
@@ -68,6 +72,8 @@
 		border-radius: 16px;
 		backdrop-filter: blur(6px);
 		-webkit-backdrop-filter: blur(6px);
+		transition: width 0.5s ease, height, min-width 0.5s ease 0.5s,
+			border-radius 0.5s ease;
 		box-shadow: rgb(0 0 0 / 25%) 0px 0px 4px 1px,
 			rgb(0 0 0 / 15%) 0px 0px 10px 2px;
 
