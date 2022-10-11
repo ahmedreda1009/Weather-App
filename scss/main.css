@@ -28,8 +28,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background: #c1b9ae;
   background: #bbb;
+  background-image: url(./../../imgs/day.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,6 +39,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+body::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.225);
+  z-index: -1;
 }
 body .loading {
   opacity: 1;
@@ -170,6 +180,13 @@ img {
   display: grid;
   gap: 30px;
   padding: 30px;
+  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(0, 0, 0, 0.1529411765);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   transition: padding 0.5s ease, margin 0.5s ease, gap 0.5s ease, width 0.5s ease;
   grid-template-areas: "search-main" "daily" "additional" "conditions";
 }
@@ -207,6 +224,8 @@ img {
 .container > *:not(.search-main) {
   padding: 20px;
   background-color: #0047ab;
+  background: rgba(0, 0, 0, 0.5);
+  background: #222;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 16px;
   backdrop-filter: blur(6px);
@@ -224,7 +243,7 @@ img {
     top: -10px;
     z-index: -1;
     border-radius: 16px;
-    background-color: hsla(0deg, 0%, 0%, 0.04);
+    background-color: hsla(0deg, 0%, 0%, 0.208);
   }
 }
 .container .search-main {
@@ -296,7 +315,6 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
   background: rgb(255, 255, 255);
   position: relative;
   padding-left: 30px;
@@ -312,7 +330,7 @@ img {
     top: -10px;
     z-index: -1;
     border-radius: 16px;
-    background-color: hsla(0deg, 0%, 0%, 0.04);
+    background-color: hsla(0deg, 0%, 0%, 0.208);
   }
 }
 .search-main .get-location .search i {
@@ -377,7 +395,7 @@ img {
     top: -10px;
     z-index: -1;
     border-radius: 16px;
-    background-color: hsla(0deg, 0%, 0%, 0.04);
+    background-color: hsla(0deg, 0%, 0%, 0.208);
   }
 }
 @media (min-width: 1000px) {
@@ -392,8 +410,10 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
   background: #0047ab;
+  background: rgba(0, 0, 0, 0.5);
+  background: #222;
+  background: #222;
 }
 @media (max-height: 700px) and (min-width: 1250px) {
   .search-main .main {
@@ -410,7 +430,7 @@ img {
     top: -10px;
     z-index: -1;
     border-radius: 16px;
-    background-color: hsla(0deg, 0%, 0%, 0.04);
+    background-color: hsla(0deg, 0%, 0%, 0.208);
   }
 }
 .search-main .main .date-time {
@@ -577,8 +597,8 @@ img {
   color: #000;
 }
 .daily-hourly .buttons .bg {
-  background-color: #222;
   background-color: #0047ab;
+  background: #222;
   height: calc(100% - 6px);
   width: calc(50% - 3px);
   position: absolute;
@@ -637,8 +657,9 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  background: rgba(255, 255, 255, 0.093);
+  background: rgba(0, 0, 0, 0.5);
+  background: #222;
+  background: #333;
   border-radius: 10px;
   padding: 10px 15px;
   margin: 0px 10px;
@@ -680,9 +701,9 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  background: rgba(255, 255, 255, 0.242);
-  background: rgba(255, 255, 255, 0.093);
+  background-color: #0047ab;
+  background: #222;
+  background: #333;
   border-radius: 10px;
   padding: 10px 15px;
   font-weight: 600;
@@ -722,11 +743,10 @@ img {
   justify-content: center;
   gap: 15px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.705);
-  background: rgba(255, 255, 255, 0.242);
-  background: rgba(255, 255, 255, 0.093);
   padding: 10px 0;
+  background: rgba(0, 0, 0, 0.5);
+  background: #222;
+  background: #333;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 2px, rgba(0, 0, 0, 0.22) 0px 0px 12px 1px;
 }
 .conditions > * .content {
@@ -765,16 +785,23 @@ img {
 .additional {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 @media (min-width: 1000px) {
   .additional {
     min-width: 200px;
   }
 }
+@media (min-width: 1250px) {
+  .additional {
+    gap: 40px;
+  }
+}
 @media (max-height: 700px) and (min-width: 1250px) {
   .additional {
     max-height: 380px;
+    gap: 0px;
+    justify-content: space-evenly;
   }
 }
 .additional > .content {
@@ -796,7 +823,9 @@ img {
 .additional > .content > * {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.093);
+  background: rgba(0, 0, 0, 0.5);
+  background: #444;
+  background: #333;
   border-radius: 13px;
   max-height: 70px;
   padding: 20px;
@@ -840,6 +869,11 @@ img {
   padding-left: 5px;
   margin-bottom: 15px;
   font-size: 1.2em;
+}
+@media (min-width: 1250px) {
+  .additional .date-time {
+    margin-top: auto;
+  }
 }
 @media (max-height: 700px) and (min-width: 1250px) {
   .additional .date-time {

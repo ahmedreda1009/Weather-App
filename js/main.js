@@ -46,7 +46,7 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
 
         let response = await fetch(api);
         let data = await response.json();
-        // console.log(data);
+        console.log(data);
 
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -108,20 +108,11 @@ async function getApiFromCoords(lat, lon, nameOfCity, country, units) {
         // change background image after sunset
         // if ((hour.textContent.includes('P') && parseInt(hour.textContent.slice(0, 2)) >= sunsetDate.hour) || (hour.textContent.includes('A') && parseInt(hour.textContent.slice(0, 2)) <= sunriseDate.hour)) {
         if ((data.current.weather[0].icon).includes('n')) {
-            // console.log('hi');
-            // document.body.style.backgroundImage = 'url(../imgs/sunrise-and-sunset6.jpg)';
-            // document.querySelectorAll('.container >*:not(.search-main)').forEach(div => {
-            //     div.style.background = 'rgb(255 255 255 / 10%)';
-            // });
-            // document.querySelector('.search-main > *').style.background = 'rgb(255 255 255 / 10%)';
-            // document.querySelector('.search-main > .main').style.background = 'rgb(255 255 255 / 10%)';
+            document.querySelector("body > .wrapper > .container").style.backgroundColor = '#00000027';
+            document.body.style.backgroundImage = 'url(./imgs/night.jpg)';
         } else {
-            // document.body.style.backgroundImage = 'url(../imgs/sunrise-and-sunset.jpg)';
-            // document.querySelectorAll('.container >*:not(.search-main)').forEach(div => {
-            //     div.style.background = 'rgba(0, 0, 0, 0.25)';
-            // });
-            // document.querySelector('.search-main > *').style.background = 'rgba(0, 0, 0, 0.25)';
-            // document.querySelector('.search-main > .main').style.background = 'rgba(0, 0, 0, 0.25)';
+            document.querySelector("body > .wrapper > .container").style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+            document.body.style.backgroundImage = 'url(./imgs/day.jpg)';
         }
 
         // set the moonrise
