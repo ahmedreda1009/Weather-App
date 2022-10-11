@@ -52,8 +52,8 @@
 			background: rgb(255, 255, 255);
 			position: relative;
 			padding-left: 30px;
-			box-shadow: rgb(0 0 0 / 15%) 0px 0px 4px 1px,
-				rgb(0 0 0 / 15%) 0px 0px 10px 2px;
+			box-shadow: rgb(0 0 0 / 10%) 0px 0px 4px 1px,
+				rgb(0 0 0 / 10%) 0px 0px 10px 2px;
 
 			@media (min-width: 800px) {
 				&::before {
@@ -375,6 +375,10 @@
 		overflow-y: scroll;
 		border-radius: 10px;
 		padding: 10px 0px;
+
+		@media (max-height: 700px) and (min-width: 1250px) {
+			gap: 15px;
+		}
 
 		&::-webkit-scrollbar {
 			width: 20px;

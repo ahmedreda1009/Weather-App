@@ -28,10 +28,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background: #eee;
-  /*background-image: url(../../imgs/sunrise-and-sunset3.jpg);
-  background-image: url(/imgs/sunrise-and-sunset3.jpg);
-  background-image: url(./../../imgs/sunrise-and-sunset3.jpg);*/
+  background: #c1b9ae;
+  background: #bbb;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,7 +53,7 @@ body .loading {
   overflow: hidden;
   background-color: rgb(255, 255, 255);
   background: rgb(42, 42, 42);
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.833);
 }
 body .loading.hidden {
   -webkit-animation: fadeout 1s;
@@ -98,8 +96,8 @@ body .loading.hidden {
   }
 }
 body .loading .loading-child {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,8 +106,8 @@ body .loading .loading-child {
 @media (max-width: 1250px) {
   body .loading .loading-child {
     top: 300px;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
   }
 }
 @media (max-width: 799px) {
@@ -141,8 +139,8 @@ body .loading .loading-child .loading-container div.dynamic {
   z-index: 1001;
 }
 body .loading .loading-child .loading-container div.static {
-  border-color: rgb(202, 202, 202);
   border-color: rgb(36, 36, 36);
+  border-color: rgb(208, 208, 208);
   box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.18);
 }
 
@@ -302,7 +300,7 @@ img {
   background: rgb(255, 255, 255);
   position: relative;
   padding-left: 30px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 4px 1px, rgba(0, 0, 0, 0.15) 0px 0px 10px 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 1px, rgba(0, 0, 0, 0.1) 0px 0px 10px 2px;
 }
 @media (min-width: 800px) {
   .search-main .get-location .search::before {
@@ -613,6 +611,12 @@ img {
   overflow-y: scroll;
   border-radius: 10px;
   padding: 10px 0px;
+}
+@media (max-height: 700px) and (min-width: 1250px) {
+  .daily-hourly .daily.active,
+.daily-hourly .hourly.active {
+    gap: 15px;
+  }
 }
 .daily-hourly .daily.active::-webkit-scrollbar,
 .daily-hourly .hourly.active::-webkit-scrollbar {
