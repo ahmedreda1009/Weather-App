@@ -28,7 +28,10 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background: #222;
+  background: #eee;
+  /*background-image: url(../../imgs/sunrise-and-sunset3.jpg);
+  background-image: url(/imgs/sunrise-and-sunset3.jpg);
+  background-image: url(./../../imgs/sunrise-and-sunset3.jpg);*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -169,8 +172,6 @@ img {
   display: grid;
   gap: 30px;
   padding: 30px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 4px 1px, rgba(0, 0, 0, 0.22) 0px 0px 20px 9px;
-  background-color: rgb(204, 204, 204);
   transition: padding 0.5s ease, margin 0.5s ease, gap 0.5s ease, width 0.5s ease;
   grid-template-areas: "search-main" "daily" "additional" "conditions";
 }
